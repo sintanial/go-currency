@@ -9,6 +9,10 @@ type Currency struct {
 	Num  string
 }
 
+func (cr Currency) String() string {
+	return cr.Code
+}
+
 //https://en.wikipedia.org/wiki/ISO_4217
 var XXX Currency = Currency{}
 var RUB Currency = Currency{"RUB", "643"}
@@ -47,103 +51,99 @@ var ZAR Currency = Currency{"ZAR", "710"}
 var currencies = map[string]Currency{
 	RUB.Code: RUB,
 	RUB.Num:  RUB,
-	
+
 	USD.Code: USD,
 	USD.Num:  USD,
-	
+
 	EUR.Code: EUR,
 	EUR.Num:  EUR,
-	
+
 	AUD.Code: AUD,
 	AUD.Num:  AUD,
-	
+
 	BGN.Code: BGN,
 	BGN.Num:  BGN,
-	
+
 	BRL.Code: BRL,
 	BRL.Num:  BRL,
-	
+
 	CAD.Code: CAD,
 	CAD.Num:  CAD,
-	
+
 	CHF.Code: CHF,
 	CHF.Num:  CHF,
-	
+
 	CNY.Code: CNY,
 	CNY.Num:  CNY,
-	
+
 	CZK.Code: CZK,
 	CZK.Num:  CZK,
-	
+
 	DKK.Code: DKK,
 	DKK.Num:  DKK,
-	
+
 	GBP.Code: GBP,
 	GBP.Num:  GBP,
-	
+
 	HKD.Code: HKD,
 	HKD.Num:  HKD,
-	
+
 	HRK.Code: HRK,
 	HRK.Num:  HRK,
-	
+
 	HUF.Code: HUF,
 	HUF.Num:  HUF,
-	
+
 	IDR.Code: IDR,
 	IDR.Num:  IDR,
-	
+
 	ILS.Code: ILS,
 	ILS.Num:  ILS,
-	
+
 	INR.Code: INR,
 	INR.Num:  INR,
-	
+
 	JPY.Code: JPY,
 	JPY.Num:  JPY,
-	
+
 	KRW.Code: KRW,
 	KRW.Num:  KRW,
-	
+
 	MXN.Code: MXN,
 	MXN.Num:  MXN,
-	
+
 	MYR.Code: MYR,
 	MYR.Num:  MYR,
-	
+
 	NOK.Code: NOK,
 	NOK.Num:  NOK,
-	
+
 	NZD.Code: NZD,
 	NZD.Num:  NZD,
-	
+
 	PHP.Code: PHP,
 	PHP.Num:  PHP,
-	
+
 	PLN.Code: PLN,
 	PLN.Num:  PLN,
-	
+
 	RON.Code: RON,
 	RON.Num:  RON,
-	
+
 	SEK.Code: SEK,
 	SEK.Num:  SEK,
-	
+
 	SGD.Code: SGD,
 	SGD.Num:  SGD,
-	
+
 	THB.Code: THB,
 	THB.Num:  THB,
-	
+
 	TRY.Code: TRY,
 	TRY.Num:  TRY,
-	
+
 	ZAR.Code: ZAR,
 	ZAR.Num:  ZAR,
-}
-
-func (cr Currency) String() string {
-	return cr.Code
 }
 
 func Parse(s string) (cr Currency, ok bool) {
@@ -156,6 +156,6 @@ func ParseDefault(s string, def Currency) Currency {
 	if !ok {
 		return def
 	}
-	
+
 	return cr
 }
